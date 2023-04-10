@@ -10,31 +10,25 @@
   <body>
     <div class="logo">LIBRARY</div>
     <button onclick="showForm()" class="add-new-book">Add new book</button>
-
     <form id="myForm" action="">
       <div class="book-title-container">
         <label for="book-title" class="book-title">Title of the book</label>
         <br />
-        <input type="text" id="book-title" name="book-title" />
+        <input type="text" id="book-title" name="book-title" required />
       </div>
       <div class="book-author-container">
         <label for="book-author" class="book-author">Author of the book</label>
         <br />
-        <input type="text" id="book-author" name="book-author" />
+        <input type="text" id="book-author" name="book-author" required />
       </div>
       <div class="book-pages-container">
         <label for="book-pages" class="book-pages">Pages of the book</label>
         <br />
-        <input type="number" id="book-pages" name="book-pages" />
-      </div>
-      <div class="book-status-container">
-        <input type="checkbox" id="book-status" name="book-status" />
-        <label for="book-status" class="book-status"
-          >I have already read this book</label
-        >
+        <input type="number" id="book-pages" name="book-pages" required />
       </div>
       <div class="submit"><button type="submit">Submit</button></div>
     </form>
+    <div class="reading-list">Reading List</div>
     <div class="book-display">
       <div class="head list">
         <div>Name</div>
@@ -43,6 +37,7 @@
         <div>Status</div>
         <div></div>
       </div>
+      <div class="library-container"></div>
     </div>
     <script src="script.js"></script>
   </body>
