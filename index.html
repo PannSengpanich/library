@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="logo">LIBRARY</div>
+    <button onclick="showForm()" class="add-new-book">Add new book</button>
+
+    <form id="myForm" action="">
+      <div class="book-title-container">
+        <label for="book-title" class="book-title">Title of the book</label>
+        <br />
+        <input type="text" id="book-title" name="book-title" />
+      </div>
+      <div class="book-author-container">
+        <label for="book-author" class="book-author">Author of the book</label>
+        <br />
+        <input type="text" id="book-author" name="book-author" />
+      </div>
+      <div class="book-pages-container">
+        <label for="book-pages" class="book-pages">Pages of the book</label>
+        <br />
+        <input type="number" id="book-pages" name="book-pages" />
+      </div>
+      <div class="book-status-container">
+        <input type="checkbox" id="book-status" name="book-status" />
+        <label for="book-status" class="book-status"
+          >I have already read this book</label
+        >
+      </div>
+      <div class="submit"><button type="submit">Submit</button></div>
+    </form>
+    <div class="book-display">
+      <div class="head list">
+        <div>Name</div>
+        <div>Author</div>
+        <div>No. of pages</div>
+        <div>Status</div>
+        <div></div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
