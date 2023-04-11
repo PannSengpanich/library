@@ -1,6 +1,19 @@
 let myLibrary = [];
+
+function Book(title, author, pages, status) {
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.status = status;
+}
+
 const submit = document.querySelector(".submit");
 submit.addEventListener("click", submitFunction);
+
+const libraryContainer = document.querySelector(".library-container");
+//event delegation
+libraryContainer.addEventListener("change", changeBookStatus);
+
 function submitFunction(event) {
   event.preventDefault();
 
@@ -22,11 +35,13 @@ function submitFunction(event) {
     alert("Please fill in all required fields.");
   }
 }
+
 function showForm() {
   var form = document.getElementById("myForm");
   form.style.display = "grid";
   form.style.gridTemplateRows = "repeat(4, 1fr) 0.5fr";
 }
+
 function addBookToLibrary() {
   const inputs = document.querySelectorAll("input");
   const book = {};
@@ -36,26 +51,22 @@ function addBookToLibrary() {
     book["book-title"],
     book["book-author"],
     book["book-pages"],
-    book["book-status"]
+    book["book-status"],
   );
   myLibrary.push(newBook);
 }
-function Book(title, author, pages, status) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.status = status;
-}
+
 function clearForm() {
   const inputs = document.querySelectorAll("input");
   inputs.forEach((input) => (input.value = ""));
 }
+
 function hideForm() {
   var form = document.getElementById("myForm");
   form.style.display = "none";
 }
+
 function displayBook() {
-  const libraryContainer = document.querySelector(".library-container");
   const existingBooks = libraryContainer.querySelectorAll(".book");
 
   // update status of existing books
@@ -86,19 +97,19 @@ function displayBook() {
       <button class="delete" onclick="deleteBook(this)">Delete</button>
     `;
 
-    bookDiv
-      .querySelector("select[name='status']")
-      .addEventListener("change", (event) => {
-        const bookTitle = bookDiv.querySelector("h2").textContent;
-        const book = myLibrary.find((book) => book.title === bookTitle);
-        book.status = event.target.value;
-      });
-
     newBooksContainer.appendChild(bookDiv);
   });
 
   libraryContainer.innerHTML = "";
   libraryContainer.appendChild(newBooksContainer);
+}
+
+function changeBookStatus(event) {
+  if (event.target.tagName === "SELECT") {
+    const bookTitle = event.target.parentNode.querySelector("h2").textContent;
+    const book = myLibrary.find((book) => book.title === bookTitle);
+    book.status = event.target.value;
+  }
 }
 
 function deleteBook(button) {
