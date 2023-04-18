@@ -88,3 +88,26 @@ button[type="submit"] {
   height: 400px;
   overflow: auto;
 }
+select,
+.delete {
+  padding: 4px 0px;
+  margin-right: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  border: none;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  appearance: none;
+}
+select {
+  text-align: center;
+}
+.delete {
+  background-color: lightpink;
+  color: red;
+}
+
+select:focus {
+  outline: none;
+}
